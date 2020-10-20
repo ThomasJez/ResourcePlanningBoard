@@ -21,7 +21,8 @@
         "sass": "^1.26.11",
         "sass-loader": "^8.0.0",
         "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10"
+        "vue-template-compiler": "^2.6.10",
+        "object-path": ">=0.11.5"
     },
     "dependencies": {
         "vue-axios": "^2.1.5"
