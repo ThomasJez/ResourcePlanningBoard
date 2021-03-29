@@ -22,7 +22,8 @@
         "sass": "^1.32.8",
         "sass-loader": "^8.0.0",
         "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10"
+        "vue-template-compiler": "^2.6.10",
+        "ssri": ">=8.0.1"
     },
     "dependencies": {
         "vue-axios": "^2.1.5"
