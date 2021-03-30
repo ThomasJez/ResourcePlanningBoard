@@ -6,7 +6,8 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+//window.Vue = require('vue');
+import Vue from 'vue'; //had to be changed from above because of laravel-mix 6
 
 /**
  * The following block of code may be used to automatically register your
