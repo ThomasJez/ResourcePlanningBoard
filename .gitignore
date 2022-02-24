@@ -12,3 +12,7 @@ npm-debug.log
 yarn-error.log
 .idea
 composer.phar
+composer.lock
+package-lock.json
+public/js/app.js
+
