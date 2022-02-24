@@ -85,11 +85,13 @@
             },
 
             apiUrl: function(baseurl, routename, param=null) {
+                baseurl += '/'
                 var url = baseurl.replace(/\?XDEBUG.*/, '').replace('#', '');
                 url += 'api/' + routename;
                 if (param) {
                     url += '/' + param;
                 }
+                url = url.replace('//api', '/api')
                 return url;
             },
 
