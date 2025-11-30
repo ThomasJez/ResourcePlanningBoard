@@ -13,7 +13,7 @@ use Illuminate\Http\Response;
 class GanttchartTest extends TestCase
 {
     use DatabaseMigrations;
-    use RefreshDatabase;
+    //use RefreshDatabase;
     protected $faker = null;
     public function __construct($name = null, array $data = [], $dataName = '')
     {

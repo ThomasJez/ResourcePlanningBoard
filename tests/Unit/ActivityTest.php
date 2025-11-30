@@ -6,11 +6,11 @@ use App\Activity;
 use App\Ganttconfig;
 use Tests\TestCase;
 use Illuminate\Http\Response;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class ActivityTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseMigrations;
     public function test_can_show_activity() {
 
         $activity = factory(Activity::class)->create();

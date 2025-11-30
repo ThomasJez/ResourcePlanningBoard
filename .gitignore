@@ -16,4 +16,5 @@ composer.lock
 package-lock.json
 public/js/app.js
 public/css/app.css
+.phpunit.cache/*
 
