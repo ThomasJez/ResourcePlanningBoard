@@ -22,7 +22,8 @@ class TermEditController extends Controller
         $ruleTerm = Ganttconfig::find('rule_term')->toArray();
         $ruleTerm['humanString'] = 'Term for Rules';
         $configEntries[] = (object)$ruleTerm;
-        return view('maintainance.termedit', compact('configEntries'));
+        $withoutVue = true;
+        return view('maintainance.termedit', compact('configEntries'), compact('withoutVue'));
     }
 
     /**

@@ -10,21 +10,23 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+    @unless($withoutVue ?? false)
+        <div id="app" class="py-4">
+    @else
+        <div class="py-4">
+    @endunless
+            <main>
+                @yield('content')
+            </main>
+        </div>
 </body>
 </html>

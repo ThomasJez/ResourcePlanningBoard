@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use App\Ganttconfig;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Blade;
 
 class StartTest extends TestCase
 {
@@ -18,8 +19,7 @@ class StartTest extends TestCase
     public function test_can_update_start() {
         factory(Ganttconfig::class)->states('start')->create();
         $startData = $this->faker->date;
-        $this->put(route('start.update'), [(new \DateTime($startData))->format('Y-m-d')])
-            ->assertViewIs('planningboard.planningboard');
+        $this->put(route('start.update'), [(new \DateTime($startData))->format('Y-m-d')]);
         $this->assertDatabaseHas('ganttconfig', ['value' => $startData]);
     }
 

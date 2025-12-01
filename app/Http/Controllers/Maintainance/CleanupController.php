@@ -15,8 +15,9 @@ class CleanupController extends Controller
     public function show() {
         $start = (new \DateTime(Ganttconfig::find('start')->value))->format('Y-m-d');
         $pastActivities = $this->getPastActivities($start);
+        $withoutVue = true;
         return view('maintainance.cleanup',
-            compact('start') + compact('pastActivities'));
+            compact('start') + compact('pastActivities'), compact('withoutVue'));
     }
 
     /**
@@ -29,7 +30,7 @@ class CleanupController extends Controller
         foreach ($pastActivities as $activity) {
             $activity->delete();
         }
-        return redirect()->route('cleanup.update');
+        return redirect()->route('cleanup.show');
     }
 
     /**

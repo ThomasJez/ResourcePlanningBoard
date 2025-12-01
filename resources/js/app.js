@@ -1,4 +1,4 @@
-require('./bootstrap');
+import './bootstrap';
 
 import { createApp } from 'vue';
 import axios from 'axios';
@@ -14,7 +14,7 @@ import GanttmenuComponent from './components/GanttmenuComponent.vue';
 import PlanningBoardComponent from './components/PlanningBoardComponent.vue';
 import ServerErrorComponent from './components/ServerErrorComponent.vue';
 
-const app = createApp({});
+const app = createApp(PlanningBoardComponent);
 
 // axios global verfügbar machen
 app.config.globalProperties.$axios = axios;
