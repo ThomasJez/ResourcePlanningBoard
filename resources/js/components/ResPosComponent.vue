@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary mr-1">Update</button>
                         <button type="reset" class="btn btn-primary">Reset</button>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
             }
         },
         created() {
-            this.axios.get(this.resposurl).then((response) => {
+            this.$axios.get(this.resposurl).then((response) => {
                 this.resources = response.data;
             });
         },
@@ -48,7 +48,7 @@
         methods: {
             updatePos: function() {
                 let uri = this.resposurl;
-                this.axios.post(uri, this.resources)
+                this.$axios.post(uri, this.resources)
                     .then((response) => {
                         this.$emit('invalidategantt');
                     })

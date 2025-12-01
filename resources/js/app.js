@@ -1,44 +1,33 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
-//window.Vue = require('vue');
-import Vue from 'vue'; //had to be changed from above because of laravel-mix 6
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-import VueAxios from 'vue-axios';
+import { createApp } from 'vue';
 import axios from 'axios';
-Vue.use(VueAxios, axios);
 
-Vue.component('resourceComponent', require('./components/ResourceComponent').default);
-Vue.component('rule-component', require('./components/RuleComponent').default);
-Vue.component('respos-component', require('./components/ResPosComponent').default);
-Vue.component('rulepos-component', require('./components/RulePosComponent').default);
-Vue.component('startedit-component', require('./components/StartEditComponent').default);
-Vue.component('ganttchart-component', require('./components/GanttchartComponent').default);
-Vue.component('ganttmenu-component', require('./components/GanttmenuComponent').default);
-Vue.component('planningboard-component', require('./components/PlanningBoardComponent').default);
-Vue.component('servererror-component', require('./components/ServerErrorComponent').default);
+// Komponenten importieren
+import ResourceComponent from './components/ResourceComponent.vue';
+import RuleComponent from './components/RuleComponent.vue';
+import ResPosComponent from './components/ResPosComponent.vue';
+import RulePosComponent from './components/RulePosComponent.vue';
+import StartEditComponent from './components/StartEditComponent.vue';
+import GanttchartComponent from './components/GanttchartComponent.vue';
+import GanttmenuComponent from './components/GanttmenuComponent.vue';
+import PlanningBoardComponent from './components/PlanningBoardComponent.vue';
+import ServerErrorComponent from './components/ServerErrorComponent.vue';
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+const app = createApp({});
 
-const app = new Vue({
-    el: '#app',
-});
+// axios global verfügbar machen
+app.config.globalProperties.$axios = axios;
+
+// Komponenten registrieren
+app.component('resource-component', ResourceComponent);
+app.component('rule-component', RuleComponent);
+app.component('respos-component', ResPosComponent);
+app.component('rulepos-component', RulePosComponent);
+app.component('startedit-component', StartEditComponent);
+app.component('ganttchart-component', GanttchartComponent);
+app.component('ganttmenu-component', GanttmenuComponent);
+app.component('planningboard-component', PlanningBoardComponent);
+app.component('servererror-component', ServerErrorComponent);
+
+app.mount('#app');

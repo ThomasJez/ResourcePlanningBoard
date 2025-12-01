@@ -39,14 +39,14 @@
             }
         },
         created() {
-            this.axios.get(this.starturl).then((response) => {
+            this.$axios.get(this.starturl).then((response) => {
                 this.chartstart = response.data;
             });
         },
         props: ['starturlprop'],
         methods: {
             updateStart: function() {
-                this.axios.put(this.starturl, [this.chartstart])
+                this.$axios.put(this.starturl, [this.chartstart])
                     .then((response) => {
                         this.$emit('invalidategantt');
                     })
@@ -61,7 +61,7 @@
             },
 
             resetStart: function() {
-                this.axios.get(this.starturl).then((response) => {
+                this.$axios.get(this.starturl).then((response) => {
                     this.chartstart = response.data;
                     this.$emit('invalidategantt');
                 });

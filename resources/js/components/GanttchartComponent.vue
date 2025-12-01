@@ -63,7 +63,7 @@
                     .then(response => {
                         this.plan = response.data;
 
-                        this.getAndDraw(this.plan, this.axios);
+                        this.getAndDraw(this.plan, this.$axios);
                         if (calledFrom == 'init') {
                             this.$emit(
                                 'initialized',

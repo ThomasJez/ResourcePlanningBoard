@@ -26,11 +26,11 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Update</button>
-                        <button type="reset" class="btn btn-primary">Reset</button>
-                        <button class="btn btn-danger" @click.prevent="onDelete(resource.id)">Delete</button>
-                        <button class="btn btn-success" @click.prevent="onCreate">Create</button>
-                        <button class="btn btn-success" @click.prevent="onPos">Position</button>
+                        <button type="submit" class="btn btn-primary mr-1">Update</button>
+                        <button type="reset" class="btn btn-primary mr-1">Reset</button>
+                        <button class="btn btn-danger mr-1" @click.prevent="onDelete(resource.id)">Delete</button>
+                        <button class="btn btn-success mr-1" @click.prevent="onCreate">Create</button>
+                        <button class="btn btn-success mr-1" @click.prevent="onPos">Position</button>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
             }
         },
         created() {
-            this.axios.get(this.resurl).then((response) => {
+            this.$axios.get(this.resurl).then((response) => {
                 this.resource = response.data;
             });
         },
@@ -59,7 +59,7 @@
         methods: {
             updateRes: function () {
                 var uri = this.resurl;
-                this.axios.put(uri, this.resource)
+                this.$axios.put(uri, this.resource)
                     .then((response) => {
                         this.$emit('invalidategantt');
                     })
@@ -74,21 +74,21 @@
             },
 
             resetRes: function() {
-                this.axios.get(this.resurl).then((response) => {
+                this.$axios.get(this.resurl).then((response) => {
                     this.resource = response.data;
                     this.$emit('invalidategantt');
                 });
             },
 
             onDelete: function(id) {
-                this.axios.delete(this.resurl).then((response) => {
+                this.$axios.delete(this.resurl).then((response) => {
                     this.$emit('invalidategantt');
                 });
             },
 
             onCreate: function() {
                 var uri = this.resurl.replace(/\/[0-9]+$/, '');
-                this.axios.post(uri, this.resource)
+                this.$axios.post(uri, this.resource)
                     .then((response) => {
                         this.$emit('invalidategantt');
                     })

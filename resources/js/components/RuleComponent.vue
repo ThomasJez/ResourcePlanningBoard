@@ -32,11 +32,11 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Update</button>
-                        <button type="reset" class="btn btn-primary">Reset</button>
-                        <button class="btn btn-danger" @click.prevent="onDelete(rule.id)">Delete</button>
-                        <button class="btn btn-success" @click.prevent="onCreate">Create</button>
-                        <button class="btn btn-success" @click.prevent="onPos">Position</button>
+                        <button type="submit" class="btn btn-primary mr-1">Update</button>
+                        <button type="reset" class="btn btn-primary mr-1">Reset</button>
+                        <button class="btn btn-danger mr-1" @click.prevent="onDelete(rule.id)">Delete</button>
+                        <button class="btn btn-success mr-1" @click.prevent="onCreate">Create</button>
+                        <button class="btn btn-success mr-1" @click.prevent="onPos">Position</button>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
             }
         },
         created() {
-            this.axios.get(this.ruleurl).then((response) => {
+            this.$axios.get(this.ruleurl).then((response) => {
                 this.rule = response.data;
             });
         },
@@ -65,7 +65,7 @@
         methods: {
             updateRule: function() {
                 let uri = this.ruleurl;
-                this.axios.put(uri, this.rule)
+                this.$axios.put(uri, this.rule)
                     .then((response) => {
                         this.$emit('invalidategantt');
                     })
@@ -81,13 +81,13 @@
 
             onDelete: function(id) {
                 let uri = this.ruleurl;
-                this.axios.delete(uri).then((response) => {
+                this.$axios.delete(uri).then((response) => {
                     this.$emit('invalidategantt');
                 });
             },
 
             resetRule: function() {
-                this.axios.get(this.ruleurl).then((response) => {
+                this.$axios.get(this.ruleurl).then((response) => {
                     this.resource = response.data;
                     this.$emit('invalidategantt');
                 });
@@ -95,7 +95,7 @@
 
             onCreate: function(id) {
                 let uri = this.ruleurl.replace(/\/[0-9]+$/, '');
-                this.axios.post(uri, this.rule)
+                this.$axios.post(uri, this.rule)
                     .then((response) => {
                         this.$emit('invalidategantt');
                     })

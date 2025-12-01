@@ -10,12 +10,15 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@vue/compiler-sfc": "^3.5.25",
         "axios": "^0.21.1",
         "bootstrap": "^4.6.0",
         "cross-env": "^5.1",
+        "follow-redirects": ">=1.14.8",
         "jquery": "^3.6.0",
         "laravel-mix": "^6.0.13",
         "lodash": "^4.17.21",
+        "node-forge": ">=1.0.0",
         "object-path": ">=0.11.8",
         "popper.js": "^1.12",
         "postcss": "^8.2.8",
@@ -23,15 +26,11 @@
         "sass": "^1.32.8",
         "sass-loader": "^8.0.0",
         "ssri": ">=8.0.1",
-        "vue": "^2.5.17",
-        "vue-loader": "^15.9.6",
-        "vue-template-compiler": "^2.6.10",
-        "node-forge": ">=1.0.0",
-        "follow-redirects": ">=1.14.8"
+        "vue": "^3.5.25",
+        "vue-loader": "^16.8.3"
     },
     "dependencies": {
-        "vue-axios": "^2.1.5",
-        "node-forge": ">=1.0.0",
-        "follow-redirects": ">=1.14.8"
+        "follow-redirects": ">=1.14.8",
+        "node-forge": ">=1.0.0"
     }
 }
