@@ -62,7 +62,7 @@ class ResourceController extends Controller
      */
     public function delete(Resource $resource)
     {
-        Activity::where('res_id', $resource->id)->delete();
+        Activity::where('resource_id', $resource->id)->delete();
         $resource->delete();
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
