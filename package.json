@@ -7,7 +7,7 @@
     "devDependencies": {
         "@vitejs/plugin-vue": "^6.0.2",
         "@vue/compiler-sfc": "^3.5.25",
-        "axios": "^0.21.1",
+        "axios": "^1.13.2",
         "bootstrap": "^4.6.0",
         "cross-env": "^5.1",
         "follow-redirects": ">=1.14.8",
@@ -18,7 +18,7 @@
         "object-path": ">=0.11.8",
         "popper.js": "^1.12",
         "postcss": "^8.2.8",
-        "resolve-url-loader": "^3.1.2",
+        "resolve-url-loader": "^5.0.0",
         "sass": "^1.32.8",
         "sass-loader": "^8.0.0",
         "ssri": ">=8.0.1",
